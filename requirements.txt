@@ -1,0 +1,7 @@
+lz4
+matplotlib
+numpy
+open3d
+pandas
+rosbags
+tqdm

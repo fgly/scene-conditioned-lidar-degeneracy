@@ -1,0 +1,43 @@
+Variant: PointNext smoke
+Log dir: smoke_pointnext_bs8_ep2
+Model kind: bin direction classification
+Split: val
+Num points: 2048
+Checkpoint: log/deg_scene/smoke_pointnext_bs8_ep2/checkpoints/best_model.pth
+Checkpoint missing keys: []
+Checkpoint unexpected keys: []
+
+Validation losses:
+Total: 0.371584
+L_cls: 0.056029
+L_dir: 0.171785
+L_mag: 0.688134
+L_rz: 0.764163
+L_lock: 0.556015
+
+Scene classification:
+Accuracy: 0.988923
+Macro F1: 0.989978
+
+Class support:
+  tunnel_like: 641
+  open_like: 1636
+  nondeg_or_other: 1334
+
+Confusion matrix:
+rows=gt, cols=pred; class order: 0=tunnel_like, 1=open_like, 2=nondeg_or_other
+[636, 0, 5]
+[0, 1621, 15]
+[1, 19, 1314]
+
+Tunnel-like direction:
+Tunnel bin accuracy: 0.934477
+Tunnel bin MAE: 0.076443
+Tunnel bin MAE deg: 1.146646
+Angular MAE deg (bin MAE): 1.146646
+
+Auxiliary metrics:
+Continuous dir_xy angular MAE deg: 45.583202
+Direction existence accuracy: 0.535863
+RZ accuracy: 0.399335
+Elapsed seconds: 1991.456

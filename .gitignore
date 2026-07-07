@@ -1,0 +1,107 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Build, packaging, and tool caches
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+MANIFEST
+.cache/
+.coverage
+.coverage.*
+.hypothesis/
+.mypy_cache/
+.nox/
+.pytest_cache/
+.tox/
+htmlcov/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Datasets and generated point-cloud data
+data/
+dataset/
+datasets/
+merged_deg_dataset/
+data26.6.2*/
+deg_file/
+deg_file_bin/
+deg_file_bin_smooth/
+degfile/
+degfile_v2/
+deg_scene_synth/
+deg_scene_synth_demo/
+deg_scene_synth_v2/
+points/
+pcd/
+*_deg_file_bin*/
+*_rotaug*/
+*.bag
+*.pcd
+*.bin
+*.npy
+*.npz
+*.h5
+*.pts
+*.xyz
+*.csv
+
+# Archives and large local transfers
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.gz
+
+# Outputs and temporary visualizations
+output/
+outputs/
+exports/
+fig/
+figures/
+runs/
+tensorboard/
+tb_logs/
+wandb/
+paper_figures/
+visio/
+*.vsdx
+
+# Model logs: keep only the selected release model directory.
+log/*
+!log/deg_scene/
+log/deg_scene/*
+!log/deg_scene/smoke_pointnext_bs8_ep2/
+!log/deg_scene/smoke_pointnext_bs8_ep2/**
+
+# Model weights are ignored by default; the smoke release checkpoint is small
+# enough for normal GitHub storage and is intentionally included.
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.onnx
+!log/deg_scene/smoke_pointnext_bs8_ep2/checkpoints/
+!log/deg_scene/smoke_pointnext_bs8_ep2/checkpoints/best_model.pth
+
+# Keep source packages with data-related names.
+!data_utils/
+!data_utils/**

@@ -1,0 +1,538 @@
+Namespace(label_path='.\\merged_deg_dataset\\labels\\deg_scene_labels.csv', data_root='.\\merged_deg_dataset\\', batch_size=8, epoch=2, learning_rate=0.0003, optimizer='Adam', decay_rate=0.0001, num_point=2048, input_channel=3, num_dir_bins=12, backbone='pointnext', use_features=False, use_uniform_sample=True, no_normalize_xyz=False, use_cpu=False, gpu='0', log_dir='smoke_pointnext_bs8_ep2', lambda_cls=0.5, lambda_mag=0.2, lambda_tun=2.0, lambda_rz=0.2, lambda_lock=0.1, dir_bin_smoothing=0.2, dir_neighbor_gamma=0.0)
+num_point hint: 2048 usually works with batch_size 8 or 16; 4096 usually works with batch_size 4 or 8. Adjust by GPU memory.
+Epoch 1/2
+Namespace(label_path='.\\merged_deg_dataset\\labels\\deg_scene_labels.csv', data_root='.\\merged_deg_dataset\\', batch_size=50, epoch=100, learning_rate=0.0003, optimizer='Adam', decay_rate=0.0001, num_point=2048, input_channel=3, num_dir_bins=12, backbone='pointnext', use_features=False, use_uniform_sample=True, no_normalize_xyz=False, use_cpu=False, gpu='0', log_dir='smoke_pointnext_bs8_ep2', lambda_cls=0.5, lambda_mag=0.2, lambda_tun=2.0, lambda_rz=0.2, lambda_lock=0.1, dir_bin_smoothing=0.2, dir_neighbor_gamma=0.0)
+num_point hint: 2048 usually works with batch_size 8 or 16; 4096 usually works with batch_size 4 or 8. Adjust by GPU memory.
+Epoch 1/100
+Train loss total=1.6776 L_cls=0.3269 L_dir=0.7571
+Train acc=0.8999 macroF1=0.8675 dirAcc=0.4789 rzAcc=0.5065 angleDeg=47.2767 tunnelBinAcc=0.7828 tunnelBinMAE=0.2646 tunnelBinMAEDeg=3.9697
+Val loss total=0.4812 L_cls=0.1277 L_dir=0.2087
+Val acc=0.9646 macroF1=0.9675 dirAcc=0.2343 rzAcc=0.3298 angleDeg=40.4381 tunnelBinAcc=0.7520 tunnelBinMAE=0.2668 tunnelBinMAEDeg=4.0016
+Saved best checkpoint: best epoch=1
+Saved best checkpoint: best monitor=macroF1=0.9675
+Saved best checkpoint: best tunnelBinAcc=0.7520 best tunnelBinMAE=0.2668 best tunnelBinMAEDeg=4.0016
+Epoch 2/100
+Train loss total=0.9588 L_cls=0.1401 L_dir=0.4444
+Train acc=0.9652 macroF1=0.9561 dirAcc=0.4519 rzAcc=0.4803 angleDeg=47.6030 tunnelBinAcc=0.8498 tunnelBinMAE=0.1539 tunnelBinMAEDeg=2.3085
+Val loss total=0.4487 L_cls=0.1196 L_dir=0.1945
+Val acc=0.9626 macroF1=0.9652 dirAcc=0.5425 rzAcc=0.3908 angleDeg=48.1349 tunnelBinAcc=0.8050 tunnelBinMAE=0.2059 tunnelBinMAEDeg=3.0889
+Epoch 3/100
+Train loss total=0.8083 L_cls=0.1062 L_dir=0.3776
+Train acc=0.9733 macroF1=0.9656 dirAcc=0.4628 rzAcc=0.4789 angleDeg=46.1723 tunnelBinAcc=0.8640 tunnelBinMAE=0.1385 tunnelBinMAEDeg=2.0769
+Val loss total=0.5727 L_cls=0.1327 L_dir=0.2532
+Val acc=0.9651 macroF1=0.9673 dirAcc=0.6101 rzAcc=0.3786 angleDeg=38.3588 tunnelBinAcc=0.7098 tunnelBinMAE=0.3042 tunnelBinMAEDeg=4.5632
+Epoch 4/100
+Train loss total=0.7211 L_cls=0.0876 L_dir=0.3386
+Train acc=0.9782 macroF1=0.9709 dirAcc=0.4761 rzAcc=0.4890 angleDeg=45.4460 tunnelBinAcc=0.8758 tunnelBinMAE=0.1255 tunnelBinMAEDeg=1.8827
+Val loss total=0.3717 L_cls=0.0947 L_dir=0.1622
+Val acc=0.9745 macroF1=0.9774 dirAcc=0.3988 rzAcc=0.3160 angleDeg=43.0091 tunnelBinAcc=0.8206 tunnelBinMAE=0.1825 tunnelBinMAEDeg=2.7379
+Saved best checkpoint: best epoch=4
+Saved best checkpoint: best monitor=macroF1=0.9774
+Saved best checkpoint: best tunnelBinAcc=0.8206 best tunnelBinMAE=0.1825 best tunnelBinMAEDeg=2.7379
+Epoch 5/100
+Train loss total=0.6703 L_cls=0.0769 L_dir=0.3159
+Train acc=0.9817 macroF1=0.9753 dirAcc=0.5091 rzAcc=0.4878 angleDeg=45.1034 tunnelBinAcc=0.8839 tunnelBinMAE=0.1177 tunnelBinMAEDeg=1.7648
+Val loss total=0.4940 L_cls=0.0981 L_dir=0.2225
+Val acc=0.9665 macroF1=0.9699 dirAcc=0.3780 rzAcc=0.3678 angleDeg=39.0151 tunnelBinAcc=0.7457 tunnelBinMAE=0.2652 tunnelBinMAEDeg=3.9782
+Epoch 6/100
+Train loss total=0.6111 L_cls=0.0726 L_dir=0.2874
+Train acc=0.9833 macroF1=0.9779 dirAcc=0.5195 rzAcc=0.4925 angleDeg=47.0331 tunnelBinAcc=0.8929 tunnelBinMAE=0.1081 tunnelBinMAEDeg=1.6210
+Val loss total=0.4918 L_cls=0.0714 L_dir=0.2281
+Val acc=0.9803 macroF1=0.9816 dirAcc=0.4619 rzAcc=0.3498 angleDeg=41.0219 tunnelBinAcc=0.7239 tunnelBinMAE=0.2871 tunnelBinMAEDeg=4.3058
+Saved best checkpoint: best epoch=6
+Saved best checkpoint: best monitor=macroF1=0.9816
+Saved best checkpoint: best tunnelBinAcc=0.7239 best tunnelBinMAE=0.2871 best tunnelBinMAEDeg=4.3058
+Epoch 7/100
+Train loss total=0.5919 L_cls=0.0609 L_dir=0.2807
+Train acc=0.9860 macroF1=0.9808 dirAcc=0.4807 rzAcc=0.4861 angleDeg=47.3847 tunnelBinAcc=0.8976 tunnelBinMAE=0.1037 tunnelBinMAEDeg=1.5548
+Val loss total=0.5045 L_cls=0.0671 L_dir=0.2355
+Val acc=0.9814 macroF1=0.9824 dirAcc=0.4664 rzAcc=0.3279 angleDeg=55.2451 tunnelBinAcc=0.6973 tunnelBinMAE=0.3214 tunnelBinMAEDeg=4.8206
+Saved best checkpoint: best epoch=7
+Saved best checkpoint: best monitor=macroF1=0.9824
+Saved best checkpoint: best tunnelBinAcc=0.6973 best tunnelBinMAE=0.3214 best tunnelBinMAEDeg=4.8206
+Epoch 8/100
+Train loss total=0.6124 L_cls=0.0647 L_dir=0.2900
+Train acc=0.9833 macroF1=0.9777 dirAcc=0.4777 rzAcc=0.4896 angleDeg=47.7985 tunnelBinAcc=0.8923 tunnelBinMAE=0.1084 tunnelBinMAEDeg=1.6253
+Val loss total=0.4465 L_cls=0.0608 L_dir=0.2080
+Val acc=0.9831 macroF1=0.9849 dirAcc=0.5735 rzAcc=0.3974 angleDeg=46.4243 tunnelBinAcc=0.7988 tunnelBinMAE=0.2122 tunnelBinMAEDeg=3.1825
+Saved best checkpoint: best epoch=8
+Saved best checkpoint: best monitor=macroF1=0.9849
+Saved best checkpoint: best tunnelBinAcc=0.7988 best tunnelBinMAE=0.2122 best tunnelBinMAEDeg=3.1825
+Epoch 9/100
+Train loss total=0.5503 L_cls=0.0622 L_dir=0.2596
+Train acc=0.9843 macroF1=0.9786 dirAcc=0.4996 rzAcc=0.4957 angleDeg=47.9764 tunnelBinAcc=0.8987 tunnelBinMAE=0.1016 tunnelBinMAEDeg=1.5246
+Val loss total=0.4328 L_cls=0.0784 L_dir=0.1968
+Val acc=0.9759 macroF1=0.9773 dirAcc=0.3916 rzAcc=0.3550 angleDeg=45.4041 tunnelBinAcc=0.8315 tunnelBinMAE=0.1825 tunnelBinMAEDeg=2.7379
+Epoch 10/100
+Train loss total=0.5186 L_cls=0.0566 L_dir=0.2451
+Train acc=0.9864 macroF1=0.9814 dirAcc=0.4980 rzAcc=0.4961 angleDeg=47.3959 tunnelBinAcc=0.9092 tunnelBinMAE=0.0908 tunnelBinMAEDeg=1.3621
+Val loss total=0.3716 L_cls=0.0642 L_dir=0.1697
+Val acc=0.9826 macroF1=0.9846 dirAcc=0.5137 rzAcc=0.3849 angleDeg=44.4271 tunnelBinAcc=0.8580 tunnelBinMAE=0.1544 tunnelBinMAEDeg=2.3167
+Epoch 11/100
+Train loss total=0.5036 L_cls=0.0561 L_dir=0.2378
+Train acc=0.9865 macroF1=0.9813 dirAcc=0.5074 rzAcc=0.5091 angleDeg=46.6670 tunnelBinAcc=0.9088 tunnelBinMAE=0.0917 tunnelBinMAEDeg=1.3750
+Val loss total=0.4305 L_cls=0.0690 L_dir=0.1980
+Val acc=0.9801 macroF1=0.9815 dirAcc=0.3927 rzAcc=0.3207 angleDeg=41.3396 tunnelBinAcc=0.7925 tunnelBinMAE=0.2168 tunnelBinMAEDeg=3.2527
+Epoch 12/100
+Train loss total=0.4856 L_cls=0.0514 L_dir=0.2299
+Train acc=0.9875 macroF1=0.9827 dirAcc=0.4725 rzAcc=0.4960 angleDeg=46.0915 tunnelBinAcc=0.9121 tunnelBinMAE=0.0882 tunnelBinMAEDeg=1.3232
+Val loss total=0.4412 L_cls=0.0808 L_dir=0.2004
+Val acc=0.9776 macroF1=0.9807 dirAcc=0.2274 rzAcc=0.3251 angleDeg=41.3900 tunnelBinAcc=0.8768 tunnelBinMAE=0.1357 tunnelBinMAEDeg=2.0359
+Epoch 13/100
+Train loss total=0.4541 L_cls=0.0475 L_dir=0.2152
+Train acc=0.9881 macroF1=0.9833 dirAcc=0.4646 rzAcc=0.5065 angleDeg=46.7507 tunnelBinAcc=0.9170 tunnelBinMAE=0.0834 tunnelBinMAEDeg=1.2513
+Val loss total=0.3453 L_cls=0.0572 L_dir=0.1584
+Val acc=0.9806 macroF1=0.9822 dirAcc=0.6447 rzAcc=0.3104 angleDeg=40.9857 tunnelBinAcc=0.8643 tunnelBinMAE=0.1482 tunnelBinMAEDeg=2.2231
+Epoch 14/100
+Train loss total=0.4881 L_cls=0.0500 L_dir=0.2315
+Train acc=0.9886 macroF1=0.9844 dirAcc=0.4583 rzAcc=0.5028 angleDeg=46.3941 tunnelBinAcc=0.9136 tunnelBinMAE=0.0865 tunnelBinMAEDeg=1.2973
+Val loss total=0.5042 L_cls=0.0591 L_dir=0.2373
+Val acc=0.9828 macroF1=0.9846 dirAcc=0.3265 rzAcc=0.3176 angleDeg=42.8536 tunnelBinAcc=0.7785 tunnelBinMAE=0.2324 tunnelBinMAEDeg=3.4867
+Epoch 15/100
+Train loss total=0.4828 L_cls=0.0473 L_dir=0.2296
+Train acc=0.9877 macroF1=0.9830 dirAcc=0.4566 rzAcc=0.5049 angleDeg=46.6497 tunnelBinAcc=0.9110 tunnelBinMAE=0.0890 tunnelBinMAEDeg=1.3347
+Val loss total=0.3422 L_cls=0.0613 L_dir=0.1558
+Val acc=0.9812 macroF1=0.9836 dirAcc=0.5708 rzAcc=0.3459 angleDeg=47.2149 tunnelBinAcc=0.8674 tunnelBinMAE=0.1435 tunnelBinMAEDeg=2.1529
+Epoch 16/100
+Train loss total=0.4615 L_cls=0.0436 L_dir=0.2198
+Train acc=0.9891 macroF1=0.9856 dirAcc=0.4605 rzAcc=0.4891 angleDeg=47.6246 tunnelBinAcc=0.9170 tunnelBinMAE=0.0835 tunnelBinMAEDeg=1.2528
+Val loss total=0.4571 L_cls=0.0731 L_dir=0.2103
+Val acc=0.9803 macroF1=0.9811 dirAcc=0.6317 rzAcc=0.3459 angleDeg=44.8778 tunnelBinAcc=0.8565 tunnelBinMAE=0.1560 tunnelBinMAEDeg=2.3401
+Epoch 17/100
+Train loss total=0.4627 L_cls=0.0443 L_dir=0.2203
+Train acc=0.9897 macroF1=0.9855 dirAcc=0.4616 rzAcc=0.4993 angleDeg=47.2212 tunnelBinAcc=0.9113 tunnelBinMAE=0.0891 tunnelBinMAEDeg=1.3362
+Val loss total=0.5098 L_cls=0.0609 L_dir=0.2397
+Val acc=0.9798 macroF1=0.9820 dirAcc=0.4132 rzAcc=0.3736 angleDeg=40.9350 tunnelBinAcc=0.8112 tunnelBinMAE=0.2012 tunnelBinMAEDeg=3.0187
+Epoch 18/100
+Train loss total=0.4610 L_cls=0.0467 L_dir=0.2188
+Train acc=0.9887 macroF1=0.9844 dirAcc=0.4750 rzAcc=0.4995 angleDeg=47.9397 tunnelBinAcc=0.9166 tunnelBinMAE=0.0834 tunnelBinMAEDeg=1.2513
+Val loss total=0.3769 L_cls=0.0778 L_dir=0.1690
+Val acc=0.9762 macroF1=0.9791 dirAcc=0.3628 rzAcc=0.3005 angleDeg=44.2652 tunnelBinAcc=0.8471 tunnelBinMAE=0.1622 tunnelBinMAEDeg=2.4337
+Epoch 19/100
+Train loss total=0.4525 L_cls=0.0450 L_dir=0.2150
+Train acc=0.9889 macroF1=0.9843 dirAcc=0.4760 rzAcc=0.4860 angleDeg=47.6240 tunnelBinAcc=0.9194 tunnelBinMAE=0.0818 tunnelBinMAEDeg=1.2269
+Val loss total=0.4069 L_cls=0.1514 L_dir=0.1656
+Val acc=0.9504 macroF1=0.9570 dirAcc=0.6741 rzAcc=0.3500 angleDeg=40.1157 tunnelBinAcc=0.8066 tunnelBinMAE=0.2028 tunnelBinMAEDeg=3.0421
+Epoch 20/100
+Train loss total=0.4615 L_cls=0.0466 L_dir=0.2191
+Train acc=0.9884 macroF1=0.9843 dirAcc=0.4866 rzAcc=0.5026 angleDeg=47.0663 tunnelBinAcc=0.9166 tunnelBinMAE=0.0839 tunnelBinMAEDeg=1.2585
+Val loss total=0.3493 L_cls=0.0620 L_dir=0.1591
+Val acc=0.9834 macroF1=0.9852 dirAcc=0.3406 rzAcc=0.3556 angleDeg=44.3090 tunnelBinAcc=0.8783 tunnelBinMAE=0.1279 tunnelBinMAEDeg=1.9189
+Saved best checkpoint: best epoch=20
+Saved best checkpoint: best monitor=macroF1=0.9852
+Saved best checkpoint: best tunnelBinAcc=0.8783 best tunnelBinMAE=0.1279 best tunnelBinMAEDeg=1.9189
+Epoch 21/100
+Train loss total=0.3802 L_cls=0.0367 L_dir=0.1809
+Train acc=0.9907 macroF1=0.9872 dirAcc=0.4931 rzAcc=0.4994 angleDeg=47.6435 tunnelBinAcc=0.9284 tunnelBinMAE=0.0716 tunnelBinMAEDeg=1.0744
+Val loss total=0.3529 L_cls=0.0565 L_dir=0.1623
+Val acc=0.9842 macroF1=0.9861 dirAcc=0.5575 rzAcc=0.2603 angleDeg=46.1017 tunnelBinAcc=0.9189 tunnelBinMAE=0.0920 tunnelBinMAEDeg=1.3807
+Saved best checkpoint: best epoch=21
+Saved best checkpoint: best monitor=macroF1=0.9861
+Saved best checkpoint: best tunnelBinAcc=0.9189 best tunnelBinMAE=0.0920 best tunnelBinMAEDeg=1.3807
+Epoch 22/100
+Train loss total=0.3411 L_cls=0.0325 L_dir=0.1624
+Train acc=0.9920 macroF1=0.9883 dirAcc=0.4863 rzAcc=0.4960 angleDeg=47.4301 tunnelBinAcc=0.9389 tunnelBinMAE=0.0611 tunnelBinMAEDeg=0.9162
+Val loss total=0.3402 L_cls=0.0425 L_dir=0.1595
+Val acc=0.9873 macroF1=0.9883 dirAcc=0.5098 rzAcc=0.3251 angleDeg=42.6983 tunnelBinAcc=0.9048 tunnelBinMAE=0.1076 tunnelBinMAEDeg=1.6147
+Saved best checkpoint: best epoch=22
+Saved best checkpoint: best monitor=macroF1=0.9883
+Saved best checkpoint: best tunnelBinAcc=0.9048 best tunnelBinMAE=0.1076 best tunnelBinMAEDeg=1.6147
+Epoch 23/100
+Train loss total=0.3641 L_cls=0.0300 L_dir=0.1745
+Train acc=0.9934 macroF1=0.9902 dirAcc=0.4793 rzAcc=0.4947 angleDeg=47.5070 tunnelBinAcc=0.9323 tunnelBinMAE=0.0677 tunnelBinMAEDeg=1.0154
+Val loss total=0.3693 L_cls=0.0575 L_dir=0.1703
+Val acc=0.9831 macroF1=0.9852 dirAcc=0.4475 rzAcc=0.2731 angleDeg=44.2004 tunnelBinAcc=0.8783 tunnelBinMAE=0.1295 tunnelBinMAEDeg=1.9423
+Epoch 24/100
+Train loss total=0.3643 L_cls=0.0321 L_dir=0.1741
+Train acc=0.9921 macroF1=0.9892 dirAcc=0.4882 rzAcc=0.4979 angleDeg=46.0969 tunnelBinAcc=0.9309 tunnelBinMAE=0.0697 tunnelBinMAEDeg=1.0456
+Val loss total=0.4242 L_cls=0.0511 L_dir=0.1993
+Val acc=0.9859 macroF1=0.9875 dirAcc=0.3716 rzAcc=0.3545 angleDeg=44.1647 tunnelBinAcc=0.8814 tunnelBinMAE=0.1295 tunnelBinMAEDeg=1.9423
+Epoch 25/100
+Train loss total=0.3412 L_cls=0.0269 L_dir=0.1639
+Train acc=0.9940 macroF1=0.9912 dirAcc=0.4921 rzAcc=0.4920 angleDeg=46.8620 tunnelBinAcc=0.9379 tunnelBinMAE=0.0621 tunnelBinMAEDeg=0.9320
+Val loss total=0.4122 L_cls=0.0483 L_dir=0.1940
+Val acc=0.9842 macroF1=0.9861 dirAcc=0.5827 rzAcc=0.3572 angleDeg=45.1259 tunnelBinAcc=0.8768 tunnelBinMAE=0.1326 tunnelBinMAEDeg=1.9891
+Epoch 26/100
+Train loss total=0.3446 L_cls=0.0300 L_dir=0.1648
+Train acc=0.9930 macroF1=0.9905 dirAcc=0.4789 rzAcc=0.4903 angleDeg=46.8210 tunnelBinAcc=0.9372 tunnelBinMAE=0.0628 tunnelBinMAEDeg=0.9421
+Val loss total=0.3751 L_cls=0.0461 L_dir=0.1760
+Val acc=0.9878 macroF1=0.9888 dirAcc=0.4580 rzAcc=0.3240 angleDeg=46.1375 tunnelBinAcc=0.8830 tunnelBinMAE=0.1264 tunnelBinMAEDeg=1.8955
+Saved best checkpoint: best epoch=26
+Saved best checkpoint: best monitor=macroF1=0.9888
+Saved best checkpoint: best tunnelBinAcc=0.8830 best tunnelBinMAE=0.1264 best tunnelBinMAEDeg=1.8955
+Epoch 27/100
+Train loss total=0.3530 L_cls=0.0307 L_dir=0.1688
+Train acc=0.9934 macroF1=0.9915 dirAcc=0.4762 rzAcc=0.4986 angleDeg=47.5243 tunnelBinAcc=0.9349 tunnelBinMAE=0.0651 tunnelBinMAEDeg=0.9766
+Val loss total=0.3693 L_cls=0.0484 L_dir=0.1725
+Val acc=0.9842 macroF1=0.9851 dirAcc=0.4135 rzAcc=0.2811 angleDeg=46.4990 tunnelBinAcc=0.8830 tunnelBinMAE=0.1248 tunnelBinMAEDeg=1.8721
+Epoch 28/100
+Train loss total=0.3365 L_cls=0.0313 L_dir=0.1604
+Train acc=0.9919 macroF1=0.9891 dirAcc=0.4646 rzAcc=0.4876 angleDeg=47.8098 tunnelBinAcc=0.9372 tunnelBinMAE=0.0628 tunnelBinMAEDeg=0.9421
+Val loss total=0.3424 L_cls=0.0446 L_dir=0.1601
+Val acc=0.9848 macroF1=0.9862 dirAcc=0.5915 rzAcc=0.3295 angleDeg=42.6760 tunnelBinAcc=0.8830 tunnelBinMAE=0.1248 tunnelBinMAEDeg=1.8721
+Epoch 29/100
+Train loss total=0.3473 L_cls=0.0314 L_dir=0.1658
+Train acc=0.9926 macroF1=0.9895 dirAcc=0.4849 rzAcc=0.5030 angleDeg=47.4013 tunnelBinAcc=0.9378 tunnelBinMAE=0.0622 tunnelBinMAEDeg=0.9335
+Val loss total=0.4114 L_cls=0.0513 L_dir=0.1929
+Val acc=0.9859 macroF1=0.9873 dirAcc=0.3689 rzAcc=0.3240 angleDeg=42.1022 tunnelBinAcc=0.8783 tunnelBinMAE=0.1342 tunnelBinMAEDeg=2.0125
+Epoch 30/100
+Train loss total=0.3289 L_cls=0.0267 L_dir=0.1578
+Train acc=0.9939 macroF1=0.9913 dirAcc=0.4939 rzAcc=0.5074 angleDeg=47.3586 tunnelBinAcc=0.9381 tunnelBinMAE=0.0619 tunnelBinMAEDeg=0.9291
+Val loss total=0.3528 L_cls=0.0517 L_dir=0.1635
+Val acc=0.9845 macroF1=0.9862 dirAcc=0.4868 rzAcc=0.2944 angleDeg=45.9924 tunnelBinAcc=0.9158 tunnelBinMAE=0.0936 tunnelBinMAEDeg=1.4041
+Epoch 31/100
+Train loss total=0.3374 L_cls=0.0323 L_dir=0.1606
+Train acc=0.9923 macroF1=0.9900 dirAcc=0.5053 rzAcc=0.5074 angleDeg=48.1883 tunnelBinAcc=0.9406 tunnelBinMAE=0.0594 tunnelBinMAEDeg=0.8917
+Val loss total=0.4480 L_cls=0.0704 L_dir=0.2064
+Val acc=0.9790 macroF1=0.9803 dirAcc=0.6491 rzAcc=0.3124 angleDeg=49.5963 tunnelBinAcc=0.8861 tunnelBinMAE=0.1232 tunnelBinMAEDeg=1.8487
+Epoch 32/100
+Train loss total=0.3444 L_cls=0.0351 L_dir=0.1634
+Train acc=0.9917 macroF1=0.9891 dirAcc=0.4955 rzAcc=0.5145 angleDeg=47.5669 tunnelBinAcc=0.9378 tunnelBinMAE=0.0625 tunnelBinMAEDeg=0.9378
+Val loss total=0.3391 L_cls=0.0529 L_dir=0.1563
+Val acc=0.9850 macroF1=0.9864 dirAcc=0.4240 rzAcc=0.3498 angleDeg=45.6550 tunnelBinAcc=0.9220 tunnelBinMAE=0.0889 tunnelBinMAEDeg=1.3339
+Epoch 33/100
+Train loss total=0.3341 L_cls=0.0253 L_dir=0.1607
+Train acc=0.9943 macroF1=0.9920 dirAcc=0.4874 rzAcc=0.5134 angleDeg=47.3347 tunnelBinAcc=0.9385 tunnelBinMAE=0.0615 tunnelBinMAEDeg=0.9219
+Val loss total=0.3747 L_cls=0.0452 L_dir=0.1760
+Val acc=0.9884 macroF1=0.9897 dirAcc=0.5140 rzAcc=0.3838 angleDeg=49.6963 tunnelBinAcc=0.9298 tunnelBinMAE=0.0811 tunnelBinMAEDeg=1.2168
+Saved best checkpoint: best epoch=33
+Saved best checkpoint: best monitor=macroF1=0.9897
+Saved best checkpoint: best tunnelBinAcc=0.9298 best tunnelBinMAE=0.0811 best tunnelBinMAEDeg=1.2168
+Epoch 34/100
+Train loss total=0.3207 L_cls=0.0264 L_dir=0.1537
+Train acc=0.9942 macroF1=0.9918 dirAcc=0.4876 rzAcc=0.5080 angleDeg=47.6716 tunnelBinAcc=0.9415 tunnelBinMAE=0.0585 tunnelBinMAEDeg=0.8774
+Val loss total=0.3326 L_cls=0.0490 L_dir=0.1540
+Val acc=0.9850 macroF1=0.9869 dirAcc=0.5361 rzAcc=0.3758 angleDeg=46.0283 tunnelBinAcc=0.9345 tunnelBinMAE=0.0780 tunnelBinMAEDeg=1.1700
+Epoch 35/100
+Train loss total=0.3343 L_cls=0.0291 L_dir=0.1599
+Train acc=0.9932 macroF1=0.9910 dirAcc=0.4998 rzAcc=0.5027 angleDeg=48.0839 tunnelBinAcc=0.9369 tunnelBinMAE=0.0636 tunnelBinMAEDeg=0.9536
+Val loss total=0.3991 L_cls=0.0442 L_dir=0.1885
+Val acc=0.9867 macroF1=0.9883 dirAcc=0.5107 rzAcc=0.3024 angleDeg=49.1803 tunnelBinAcc=0.9220 tunnelBinMAE=0.0889 tunnelBinMAEDeg=1.3339
+Epoch 36/100
+Train loss total=0.3211 L_cls=0.0248 L_dir=0.1544
+Train acc=0.9937 macroF1=0.9906 dirAcc=0.4926 rzAcc=0.5149 angleDeg=49.2865 tunnelBinAcc=0.9423 tunnelBinMAE=0.0583 tunnelBinMAEDeg=0.8745
+Val loss total=0.4529 L_cls=0.0525 L_dir=0.2133
+Val acc=0.9848 macroF1=0.9864 dirAcc=0.3766 rzAcc=0.4052 angleDeg=51.6112 tunnelBinAcc=0.9158 tunnelBinMAE=0.0936 tunnelBinMAEDeg=1.4041
+Epoch 37/100
+Train loss total=0.3285 L_cls=0.0278 L_dir=0.1573
+Train acc=0.9929 macroF1=0.9900 dirAcc=0.4869 rzAcc=0.5098 angleDeg=49.7794 tunnelBinAcc=0.9400 tunnelBinMAE=0.0601 tunnelBinMAEDeg=0.9018
+Val loss total=0.4239 L_cls=0.0468 L_dir=0.2002
+Val acc=0.9850 macroF1=0.9861 dirAcc=0.3583 rzAcc=0.4018 angleDeg=48.7580 tunnelBinAcc=0.9220 tunnelBinMAE=0.0874 tunnelBinMAEDeg=1.3105
+Epoch 38/100
+Train loss total=0.3125 L_cls=0.0235 L_dir=0.1504
+Train acc=0.9945 macroF1=0.9928 dirAcc=0.4753 rzAcc=0.5280 angleDeg=48.7282 tunnelBinAcc=0.9408 tunnelBinMAE=0.0593 tunnelBinMAEDeg=0.8889
+Val loss total=0.4309 L_cls=0.0413 L_dir=0.2052
+Val acc=0.9881 macroF1=0.9893 dirAcc=0.3185 rzAcc=0.4184 angleDeg=52.6609 tunnelBinAcc=0.8783 tunnelBinMAE=0.1326 tunnelBinMAEDeg=1.9891
+Epoch 39/100
+Train loss total=0.3359 L_cls=0.0270 L_dir=0.1612
+Train acc=0.9935 macroF1=0.9913 dirAcc=0.4883 rzAcc=0.5244 angleDeg=48.1784 tunnelBinAcc=0.9356 tunnelBinMAE=0.0644 tunnelBinMAEDeg=0.9665
+Val loss total=0.3909 L_cls=0.0516 L_dir=0.1825
+Val acc=0.9839 macroF1=0.9854 dirAcc=0.5508 rzAcc=0.4323 angleDeg=43.7548 tunnelBinAcc=0.9158 tunnelBinMAE=0.0936 tunnelBinMAEDeg=1.4041
+Epoch 40/100
+Train loss total=0.3067 L_cls=0.0293 L_dir=0.1460
+Train acc=0.9928 macroF1=0.9898 dirAcc=0.4982 rzAcc=0.5331 angleDeg=47.5291 tunnelBinAcc=0.9443 tunnelBinMAE=0.0557 tunnelBinMAEDeg=0.8357
+Val loss total=0.3526 L_cls=0.0494 L_dir=0.1640
+Val acc=0.9842 macroF1=0.9861 dirAcc=0.3730 rzAcc=0.4400 angleDeg=45.6684 tunnelBinAcc=0.9267 tunnelBinMAE=0.0811 tunnelBinMAEDeg=1.2168
+Epoch 41/100
+Train loss total=0.2893 L_cls=0.0226 L_dir=0.1390
+Train acc=0.9950 macroF1=0.9934 dirAcc=0.4894 rzAcc=0.5215 angleDeg=48.2404 tunnelBinAcc=0.9465 tunnelBinMAE=0.0535 tunnelBinMAEDeg=0.8026
+Val loss total=0.3901 L_cls=0.0535 L_dir=0.1817
+Val acc=0.9867 macroF1=0.9882 dirAcc=0.5993 rzAcc=0.4251 angleDeg=45.3556 tunnelBinAcc=0.9080 tunnelBinMAE=0.1014 tunnelBinMAEDeg=1.5211
+Epoch 42/100
+Train loss total=0.2775 L_cls=0.0196 L_dir=0.1338
+Train acc=0.9950 macroF1=0.9927 dirAcc=0.4887 rzAcc=0.5188 angleDeg=47.5443 tunnelBinAcc=0.9483 tunnelBinMAE=0.0520 tunnelBinMAEDeg=0.7796
+Val loss total=0.3383 L_cls=0.0425 L_dir=0.1585
+Val acc=0.9862 macroF1=0.9871 dirAcc=0.3276 rzAcc=0.4132 angleDeg=45.0327 tunnelBinAcc=0.9407 tunnelBinMAE=0.0702 tunnelBinMAEDeg=1.0530
+Epoch 43/100
+Train loss total=0.2684 L_cls=0.0214 L_dir=0.1289
+Train acc=0.9947 macroF1=0.9930 dirAcc=0.4876 rzAcc=0.5222 angleDeg=47.4822 tunnelBinAcc=0.9496 tunnelBinMAE=0.0506 tunnelBinMAEDeg=0.7594
+Val loss total=0.3316 L_cls=0.0634 L_dir=0.1499
+Val acc=0.9834 macroF1=0.9852 dirAcc=0.6541 rzAcc=0.3894 angleDeg=43.1562 tunnelBinAcc=0.8814 tunnelBinMAE=0.1248 tunnelBinMAEDeg=1.8721
+Epoch 44/100
+Train loss total=0.2754 L_cls=0.0178 L_dir=0.1332
+Train acc=0.9958 macroF1=0.9943 dirAcc=0.5012 rzAcc=0.5196 angleDeg=47.1201 tunnelBinAcc=0.9475 tunnelBinMAE=0.0525 tunnelBinMAEDeg=0.7882
+Val loss total=0.4308 L_cls=0.0511 L_dir=0.2026
+Val acc=0.9856 macroF1=0.9871 dirAcc=0.6314 rzAcc=0.3896 angleDeg=46.4210 tunnelBinAcc=0.8955 tunnelBinMAE=0.1139 tunnelBinMAEDeg=1.7083
+Epoch 45/100
+Train loss total=0.2634 L_cls=0.0187 L_dir=0.1270
+Train acc=0.9951 macroF1=0.9930 dirAcc=0.5129 rzAcc=0.5242 angleDeg=46.9979 tunnelBinAcc=0.9502 tunnelBinMAE=0.0498 tunnelBinMAEDeg=0.7465
+Val loss total=0.3430 L_cls=0.0455 L_dir=0.1601
+Val acc=0.9870 macroF1=0.9882 dirAcc=0.5195 rzAcc=0.3727 angleDeg=47.8149 tunnelBinAcc=0.9423 tunnelBinMAE=0.0671 tunnelBinMAEDeg=1.0062
+Epoch 46/100
+Train loss total=0.2679 L_cls=0.0194 L_dir=0.1291
+Train acc=0.9945 macroF1=0.9923 dirAcc=0.5121 rzAcc=0.5261 angleDeg=47.5382 tunnelBinAcc=0.9513 tunnelBinMAE=0.0487 tunnelBinMAEDeg=0.7307
+Val loss total=0.4056 L_cls=0.0603 L_dir=0.1877
+Val acc=0.9853 macroF1=0.9870 dirAcc=0.5896 rzAcc=0.3841 angleDeg=48.3969 tunnelBinAcc=0.9173 tunnelBinMAE=0.0936 tunnelBinMAEDeg=1.4041
+Epoch 47/100
+Train loss total=0.2770 L_cls=0.0170 L_dir=0.1343
+Train acc=0.9958 macroF1=0.9943 dirAcc=0.5144 rzAcc=0.5205 angleDeg=47.5181 tunnelBinAcc=0.9461 tunnelBinMAE=0.0539 tunnelBinMAEDeg=0.8083
+Val loss total=0.3584 L_cls=0.0433 L_dir=0.1684
+Val acc=0.9873 macroF1=0.9886 dirAcc=0.5370 rzAcc=0.4002 angleDeg=45.2354 tunnelBinAcc=0.9064 tunnelBinMAE=0.1030 tunnelBinMAEDeg=1.5445
+Epoch 48/100
+Train loss total=0.2580 L_cls=0.0166 L_dir=0.1249
+Train acc=0.9961 macroF1=0.9950 dirAcc=0.5050 rzAcc=0.5246 angleDeg=48.1849 tunnelBinAcc=0.9504 tunnelBinMAE=0.0496 tunnelBinMAEDeg=0.7436
+Val loss total=0.3693 L_cls=0.0584 L_dir=0.1700
+Val acc=0.9864 macroF1=0.9879 dirAcc=0.5921 rzAcc=0.3830 angleDeg=44.8219 tunnelBinAcc=0.9516 tunnelBinMAE=0.0593 tunnelBinMAEDeg=0.8892
+Epoch 49/100
+Train loss total=0.2644 L_cls=0.0160 L_dir=0.1282
+Train acc=0.9961 macroF1=0.9946 dirAcc=0.4852 rzAcc=0.5163 angleDeg=48.1335 tunnelBinAcc=0.9501 tunnelBinMAE=0.0499 tunnelBinMAEDeg=0.7479
+Val loss total=0.4247 L_cls=0.0624 L_dir=0.1967
+Val acc=0.9862 macroF1=0.9877 dirAcc=0.4614 rzAcc=0.3891 angleDeg=48.5319 tunnelBinAcc=0.9095 tunnelBinMAE=0.0998 tunnelBinMAEDeg=1.4977
+Epoch 50/100
+Train loss total=0.2686 L_cls=0.0185 L_dir=0.1297
+Train acc=0.9951 macroF1=0.9931 dirAcc=0.4993 rzAcc=0.5142 angleDeg=47.5843 tunnelBinAcc=0.9509 tunnelBinMAE=0.0491 tunnelBinMAEDeg=0.7364
+Val loss total=0.4170 L_cls=0.0538 L_dir=0.1951
+Val acc=0.9862 macroF1=0.9877 dirAcc=0.5716 rzAcc=0.4140 angleDeg=44.3444 tunnelBinAcc=0.9158 tunnelBinMAE=0.0936 tunnelBinMAEDeg=1.4041
+Epoch 51/100
+Train loss total=0.2515 L_cls=0.0172 L_dir=0.1215
+Train acc=0.9959 macroF1=0.9948 dirAcc=0.5077 rzAcc=0.5094 angleDeg=47.4985 tunnelBinAcc=0.9523 tunnelBinMAE=0.0477 tunnelBinMAEDeg=0.7148
+Val loss total=0.4414 L_cls=0.0908 L_dir=0.1980
+Val acc=0.9790 macroF1=0.9816 dirAcc=0.3625 rzAcc=0.3334 angleDeg=43.8071 tunnelBinAcc=0.9173 tunnelBinMAE=0.0952 tunnelBinMAEDeg=1.4275
+Epoch 52/100
+Train loss total=0.2715 L_cls=0.0188 L_dir=0.1311
+Train acc=0.9949 macroF1=0.9928 dirAcc=0.5225 rzAcc=0.5059 angleDeg=47.8259 tunnelBinAcc=0.9487 tunnelBinMAE=0.0518 tunnelBinMAEDeg=0.7767
+Val loss total=0.4116 L_cls=0.0539 L_dir=0.1924
+Val acc=0.9862 macroF1=0.9876 dirAcc=0.5566 rzAcc=0.3822 angleDeg=47.8910 tunnelBinAcc=0.9080 tunnelBinMAE=0.1030 tunnelBinMAEDeg=1.5445
+Epoch 53/100
+Train loss total=0.2651 L_cls=0.0198 L_dir=0.1276
+Train acc=0.9953 macroF1=0.9939 dirAcc=0.5157 rzAcc=0.5042 angleDeg=47.5080 tunnelBinAcc=0.9492 tunnelBinMAE=0.0508 tunnelBinMAEDeg=0.7623
+Val loss total=0.3756 L_cls=0.0603 L_dir=0.1727
+Val acc=0.9853 macroF1=0.9868 dirAcc=0.5195 rzAcc=0.3669 angleDeg=43.3963 tunnelBinAcc=0.8955 tunnelBinMAE=0.1186 tunnelBinMAEDeg=1.7785
+Epoch 54/100
+Train loss total=0.2519 L_cls=0.0171 L_dir=0.1217
+Train acc=0.9960 macroF1=0.9947 dirAcc=0.5191 rzAcc=0.4955 angleDeg=46.7485 tunnelBinAcc=0.9522 tunnelBinMAE=0.0478 tunnelBinMAEDeg=0.7177
+Val loss total=0.3734 L_cls=0.0738 L_dir=0.1682
+Val acc=0.9814 macroF1=0.9838 dirAcc=0.6131 rzAcc=0.3736 angleDeg=44.8507 tunnelBinAcc=0.8908 tunnelBinMAE=0.1201 tunnelBinMAEDeg=1.8019
+Epoch 55/100
+Train loss total=0.2528 L_cls=0.0156 L_dir=0.1225
+Train acc=0.9967 macroF1=0.9953 dirAcc=0.5055 rzAcc=0.4929 angleDeg=47.1776 tunnelBinAcc=0.9529 tunnelBinMAE=0.0471 tunnelBinMAEDeg=0.7062
+Val loss total=0.3626 L_cls=0.0567 L_dir=0.1671
+Val acc=0.9853 macroF1=0.9868 dirAcc=0.4954 rzAcc=0.3240 angleDeg=48.8259 tunnelBinAcc=0.9111 tunnelBinMAE=0.1014 tunnelBinMAEDeg=1.5211
+Epoch 56/100
+Train loss total=0.2657 L_cls=0.0152 L_dir=0.1290
+Train acc=0.9967 macroF1=0.9958 dirAcc=0.5265 rzAcc=0.5002 angleDeg=46.9997 tunnelBinAcc=0.9487 tunnelBinMAE=0.0513 tunnelBinMAEDeg=0.7695
+Val loss total=0.3771 L_cls=0.0465 L_dir=0.1769
+Val acc=0.9878 macroF1=0.9888 dirAcc=0.6768 rzAcc=0.3952 angleDeg=45.8013 tunnelBinAcc=0.9407 tunnelBinMAE=0.0702 tunnelBinMAEDeg=1.0530
+Epoch 57/100
+Train loss total=0.2548 L_cls=0.0160 L_dir=0.1234
+Train acc=0.9968 macroF1=0.9957 dirAcc=0.5125 rzAcc=0.4932 angleDeg=47.0407 tunnelBinAcc=0.9517 tunnelBinMAE=0.0483 tunnelBinMAEDeg=0.7249
+Val loss total=0.4000 L_cls=0.0437 L_dir=0.1891
+Val acc=0.9867 macroF1=0.9874 dirAcc=0.4830 rzAcc=0.3968 angleDeg=46.3769 tunnelBinAcc=0.9204 tunnelBinMAE=0.0889 tunnelBinMAEDeg=1.3339
+Epoch 58/100
+Train loss total=0.2499 L_cls=0.0204 L_dir=0.1198
+Train acc=0.9948 macroF1=0.9931 dirAcc=0.4957 rzAcc=0.4995 angleDeg=47.3432 tunnelBinAcc=0.9534 tunnelBinMAE=0.0466 tunnelBinMAEDeg=0.6990
+Val loss total=0.4437 L_cls=0.0548 L_dir=0.2082
+Val acc=0.9859 macroF1=0.9873 dirAcc=0.6120 rzAcc=0.3844 angleDeg=43.1515 tunnelBinAcc=0.9002 tunnelBinMAE=0.1108 tunnelBinMAEDeg=1.6615
+Epoch 59/100
+Train loss total=0.2604 L_cls=0.0171 L_dir=0.1259
+Train acc=0.9961 macroF1=0.9947 dirAcc=0.5023 rzAcc=0.4918 angleDeg=47.8736 tunnelBinAcc=0.9512 tunnelBinMAE=0.0488 tunnelBinMAEDeg=0.7321
+Val loss total=0.3811 L_cls=0.0486 L_dir=0.1784
+Val acc=0.9875 macroF1=0.9888 dirAcc=0.5300 rzAcc=0.3805 angleDeg=48.3859 tunnelBinAcc=0.9236 tunnelBinMAE=0.0874 tunnelBinMAEDeg=1.3105
+Epoch 60/100
+Train loss total=0.2655 L_cls=0.0169 L_dir=0.1285
+Train acc=0.9955 macroF1=0.9937 dirAcc=0.5046 rzAcc=0.4996 angleDeg=46.4798 tunnelBinAcc=0.9521 tunnelBinMAE=0.0479 tunnelBinMAEDeg=0.7191
+Val loss total=0.3553 L_cls=0.0579 L_dir=0.1632
+Val acc=0.9850 macroF1=0.9868 dirAcc=0.4556 rzAcc=0.3860 angleDeg=45.4330 tunnelBinAcc=0.9251 tunnelBinMAE=0.0858 tunnelBinMAEDeg=1.2871
+Epoch 61/100
+Train loss total=0.2302 L_cls=0.0137 L_dir=0.1117
+Train acc=0.9964 macroF1=0.9952 dirAcc=0.4877 rzAcc=0.5094 angleDeg=46.8950 tunnelBinAcc=0.9554 tunnelBinMAE=0.0446 tunnelBinMAEDeg=0.6688
+Val loss total=0.3776 L_cls=0.0465 L_dir=0.1772
+Val acc=0.9878 macroF1=0.9891 dirAcc=0.5007 rzAcc=0.4223 angleDeg=46.8791 tunnelBinAcc=0.9282 tunnelBinMAE=0.0827 tunnelBinMAEDeg=1.2402
+Epoch 62/100
+Train loss total=0.2299 L_cls=0.0101 L_dir=0.1124
+Train acc=0.9980 macroF1=0.9975 dirAcc=0.4931 rzAcc=0.5166 angleDeg=47.1818 tunnelBinAcc=0.9559 tunnelBinMAE=0.0443 tunnelBinMAEDeg=0.6645
+Val loss total=0.3696 L_cls=0.0517 L_dir=0.1719
+Val acc=0.9867 macroF1=0.9882 dirAcc=0.4007 rzAcc=0.3758 angleDeg=46.7495 tunnelBinAcc=0.9516 tunnelBinMAE=0.0577 tunnelBinMAEDeg=0.8658
+Epoch 63/100
+Train loss total=0.2262 L_cls=0.0119 L_dir=0.1101
+Train acc=0.9976 macroF1=0.9970 dirAcc=0.4900 rzAcc=0.5188 angleDeg=47.1449 tunnelBinAcc=0.9556 tunnelBinMAE=0.0444 tunnelBinMAEDeg=0.6659
+Val loss total=0.3756 L_cls=0.0600 L_dir=0.1728
+Val acc=0.9850 macroF1=0.9861 dirAcc=0.5744 rzAcc=0.4018 angleDeg=47.2798 tunnelBinAcc=0.9251 tunnelBinMAE=0.0858 tunnelBinMAEDeg=1.2871
+Epoch 64/100
+Train loss total=0.2270 L_cls=0.0115 L_dir=0.1106
+Train acc=0.9969 macroF1=0.9962 dirAcc=0.4919 rzAcc=0.5139 angleDeg=46.6345 tunnelBinAcc=0.9544 tunnelBinMAE=0.0456 tunnelBinMAEDeg=0.6846
+Val loss total=0.3993 L_cls=0.0489 L_dir=0.1874
+Val acc=0.9884 macroF1=0.9895 dirAcc=0.6547 rzAcc=0.4273 angleDeg=46.0882 tunnelBinAcc=0.9282 tunnelBinMAE=0.0827 tunnelBinMAEDeg=1.2402
+Epoch 65/100
+Train loss total=0.2260 L_cls=0.0106 L_dir=0.1104
+Train acc=0.9968 macroF1=0.9961 dirAcc=0.4884 rzAcc=0.5040 angleDeg=47.2547 tunnelBinAcc=0.9561 tunnelBinMAE=0.0439 tunnelBinMAEDeg=0.6587
+Val loss total=0.3924 L_cls=0.0529 L_dir=0.1830
+Val acc=0.9878 macroF1=0.9891 dirAcc=0.5151 rzAcc=0.4160 angleDeg=47.7205 tunnelBinAcc=0.9282 tunnelBinMAE=0.0827 tunnelBinMAEDeg=1.2402
+Epoch 66/100
+Train loss total=0.2110 L_cls=0.0127 L_dir=0.1023
+Train acc=0.9967 macroF1=0.9953 dirAcc=0.4758 rzAcc=0.5084 angleDeg=47.5427 tunnelBinAcc=0.9594 tunnelBinMAE=0.0406 tunnelBinMAEDeg=0.6084
+Val loss total=0.4012 L_cls=0.0542 L_dir=0.1870
+Val acc=0.9856 macroF1=0.9872 dirAcc=0.4586 rzAcc=0.4002 angleDeg=46.5128 tunnelBinAcc=0.9454 tunnelBinMAE=0.0655 tunnelBinMAEDeg=0.9828
+Epoch 67/100
+Train loss total=0.2322 L_cls=0.0122 L_dir=0.1130
+Train acc=0.9970 macroF1=0.9958 dirAcc=0.4708 rzAcc=0.5026 angleDeg=46.9370 tunnelBinAcc=0.9559 tunnelBinMAE=0.0442 tunnelBinMAEDeg=0.6631
+Val loss total=0.3727 L_cls=0.0550 L_dir=0.1726
+Val acc=0.9870 macroF1=0.9884 dirAcc=0.4160 rzAcc=0.3869 angleDeg=47.4390 tunnelBinAcc=0.9220 tunnelBinMAE=0.0889 tunnelBinMAEDeg=1.3339
+Epoch 68/100
+Train loss total=0.2054 L_cls=0.0110 L_dir=0.1000
+Train acc=0.9973 macroF1=0.9965 dirAcc=0.4800 rzAcc=0.5085 angleDeg=46.6910 tunnelBinAcc=0.9601 tunnelBinMAE=0.0399 tunnelBinMAEDeg=0.5983
+Val loss total=0.3490 L_cls=0.0505 L_dir=0.1619
+Val acc=0.9884 macroF1=0.9892 dirAcc=0.5899 rzAcc=0.4201 angleDeg=44.9532 tunnelBinAcc=0.9438 tunnelBinMAE=0.0671 tunnelBinMAEDeg=1.0062
+Epoch 69/100
+Train loss total=0.2193 L_cls=0.0129 L_dir=0.1064
+Train acc=0.9964 macroF1=0.9956 dirAcc=0.4769 rzAcc=0.5220 angleDeg=47.0067 tunnelBinAcc=0.9594 tunnelBinMAE=0.0406 tunnelBinMAEDeg=0.6084
+Val loss total=0.3827 L_cls=0.0574 L_dir=0.1770
+Val acc=0.9886 macroF1=0.9897 dirAcc=0.5586 rzAcc=0.3999 angleDeg=45.7181 tunnelBinAcc=0.9360 tunnelBinMAE=0.0749 tunnelBinMAEDeg=1.1232
+Saved best checkpoint: best epoch=69
+Saved best checkpoint: best monitor=macroF1=0.9897
+Saved best checkpoint: best tunnelBinAcc=0.9360 best tunnelBinMAE=0.0749 best tunnelBinMAEDeg=1.1232
+Epoch 70/100
+Train loss total=0.2147 L_cls=0.0108 L_dir=0.1046
+Train acc=0.9979 macroF1=0.9969 dirAcc=0.4812 rzAcc=0.5218 angleDeg=47.5291 tunnelBinAcc=0.9575 tunnelBinMAE=0.0425 tunnelBinMAEDeg=0.6372
+Val loss total=0.4471 L_cls=0.0570 L_dir=0.2093
+Val acc=0.9878 macroF1=0.9889 dirAcc=0.5298 rzAcc=0.4445 angleDeg=45.5370 tunnelBinAcc=0.9454 tunnelBinMAE=0.0640 tunnelBinMAEDeg=0.9594
+Epoch 71/100
+Train loss total=0.2031 L_cls=0.0132 L_dir=0.0983
+Train acc=0.9967 macroF1=0.9954 dirAcc=0.4864 rzAcc=0.5216 angleDeg=47.0384 tunnelBinAcc=0.9620 tunnelBinMAE=0.0380 tunnelBinMAEDeg=0.5696
+Val loss total=0.3796 L_cls=0.0534 L_dir=0.1764
+Val acc=0.9867 macroF1=0.9882 dirAcc=0.5561 rzAcc=0.4165 angleDeg=45.1203 tunnelBinAcc=0.9236 tunnelBinMAE=0.0858 tunnelBinMAEDeg=1.2871
+Epoch 72/100
+Train loss total=0.2202 L_cls=0.0114 L_dir=0.1073
+Train acc=0.9974 macroF1=0.9965 dirAcc=0.4824 rzAcc=0.5080 angleDeg=46.5932 tunnelBinAcc=0.9562 tunnelBinMAE=0.0438 tunnelBinMAEDeg=0.6573
+Val loss total=0.4505 L_cls=0.0569 L_dir=0.2110
+Val acc=0.9862 macroF1=0.9877 dirAcc=0.6369 rzAcc=0.4326 angleDeg=45.1362 tunnelBinAcc=0.9236 tunnelBinMAE=0.0858 tunnelBinMAEDeg=1.2871
+Epoch 73/100
+Train loss total=0.2182 L_cls=0.0102 L_dir=0.1066
+Train acc=0.9975 macroF1=0.9966 dirAcc=0.4969 rzAcc=0.5161 angleDeg=46.2959 tunnelBinAcc=0.9587 tunnelBinMAE=0.0413 tunnelBinMAEDeg=0.6199
+Val loss total=0.3852 L_cls=0.0523 L_dir=0.1795
+Val acc=0.9884 macroF1=0.9895 dirAcc=0.4536 rzAcc=0.4171 angleDeg=46.2061 tunnelBinAcc=0.9345 tunnelBinMAE=0.0733 tunnelBinMAEDeg=1.0998
+Epoch 74/100
+Train loss total=0.2205 L_cls=0.0103 L_dir=0.1077
+Train acc=0.9977 macroF1=0.9970 dirAcc=0.4878 rzAcc=0.5199 angleDeg=46.3340 tunnelBinAcc=0.9590 tunnelBinMAE=0.0410 tunnelBinMAEDeg=0.6156
+Val loss total=0.4058 L_cls=0.0556 L_dir=0.1890
+Val acc=0.9867 macroF1=0.9880 dirAcc=0.5115 rzAcc=0.4265 angleDeg=46.2519 tunnelBinAcc=0.9407 tunnelBinMAE=0.0686 tunnelBinMAEDeg=1.0296
+Epoch 75/100
+Train loss total=0.2155 L_cls=0.0125 L_dir=0.1046
+Train acc=0.9966 macroF1=0.9954 dirAcc=0.4761 rzAcc=0.5271 angleDeg=46.8141 tunnelBinAcc=0.9584 tunnelBinMAE=0.0416 tunnelBinMAEDeg=0.6242
+Val loss total=0.3674 L_cls=0.0428 L_dir=0.1730
+Val acc=0.9886 macroF1=0.9894 dirAcc=0.7029 rzAcc=0.4367 angleDeg=44.3560 tunnelBinAcc=0.9470 tunnelBinMAE=0.0640 tunnelBinMAEDeg=0.9594
+Epoch 76/100
+Train loss total=0.2095 L_cls=0.0093 L_dir=0.1024
+Train acc=0.9977 macroF1=0.9971 dirAcc=0.4857 rzAcc=0.5199 angleDeg=47.1706 tunnelBinAcc=0.9589 tunnelBinMAE=0.0411 tunnelBinMAEDeg=0.6170
+Val loss total=0.3958 L_cls=0.0663 L_dir=0.1813
+Val acc=0.9834 macroF1=0.9854 dirAcc=0.5849 rzAcc=0.4353 angleDeg=43.8041 tunnelBinAcc=0.9454 tunnelBinMAE=0.0640 tunnelBinMAEDeg=0.9594
+Epoch 77/100
+Train loss total=0.2136 L_cls=0.0125 L_dir=0.1037
+Train acc=0.9967 macroF1=0.9956 dirAcc=0.4936 rzAcc=0.5121 angleDeg=45.9788 tunnelBinAcc=0.9597 tunnelBinMAE=0.0408 tunnelBinMAEDeg=0.6113
+Val loss total=0.3857 L_cls=0.0510 L_dir=0.1801
+Val acc=0.9878 macroF1=0.9888 dirAcc=0.6356 rzAcc=0.4381 angleDeg=45.2370 tunnelBinAcc=0.9329 tunnelBinMAE=0.0764 tunnelBinMAEDeg=1.1466
+Epoch 78/100
+Train loss total=0.2278 L_cls=0.0147 L_dir=0.1102
+Train acc=0.9967 macroF1=0.9957 dirAcc=0.4920 rzAcc=0.5069 angleDeg=46.8510 tunnelBinAcc=0.9576 tunnelBinMAE=0.0424 tunnelBinMAEDeg=0.6357
+Val loss total=0.3901 L_cls=0.0542 L_dir=0.1815
+Val acc=0.9864 macroF1=0.9878 dirAcc=0.7123 rzAcc=0.4351 angleDeg=44.9391 tunnelBinAcc=0.9376 tunnelBinMAE=0.0702 tunnelBinMAEDeg=1.0530
+Epoch 79/100
+Train loss total=0.1965 L_cls=0.0083 L_dir=0.0962
+Train acc=0.9975 macroF1=0.9971 dirAcc=0.4818 rzAcc=0.5132 angleDeg=45.8313 tunnelBinAcc=0.9619 tunnelBinMAE=0.0381 tunnelBinMAEDeg=0.5710
+Val loss total=0.3993 L_cls=0.0540 L_dir=0.1862
+Val acc=0.9853 macroF1=0.9864 dirAcc=0.6876 rzAcc=0.3910 angleDeg=44.7272 tunnelBinAcc=0.9267 tunnelBinMAE=0.0827 tunnelBinMAEDeg=1.2402
+Epoch 80/100
+Train loss total=0.2013 L_cls=0.0103 L_dir=0.0981
+Train acc=0.9973 macroF1=0.9970 dirAcc=0.4947 rzAcc=0.5142 angleDeg=46.1461 tunnelBinAcc=0.9613 tunnelBinMAE=0.0391 tunnelBinMAEDeg=0.5868
+Val loss total=0.4060 L_cls=0.0665 L_dir=0.1864
+Val acc=0.9848 macroF1=0.9864 dirAcc=0.6724 rzAcc=0.4281 angleDeg=45.8134 tunnelBinAcc=0.9298 tunnelBinMAE=0.0780 tunnelBinMAEDeg=1.1700
+Epoch 81/100
+Train loss total=0.1953 L_cls=0.0097 L_dir=0.0952
+Train acc=0.9980 macroF1=0.9972 dirAcc=0.4958 rzAcc=0.5188 angleDeg=46.7612 tunnelBinAcc=0.9627 tunnelBinMAE=0.0373 tunnelBinMAEDeg=0.5595
+Val loss total=0.3980 L_cls=0.0679 L_dir=0.1820
+Val acc=0.9864 macroF1=0.9878 dirAcc=0.6940 rzAcc=0.4273 angleDeg=44.6306 tunnelBinAcc=0.9438 tunnelBinMAE=0.0655 tunnelBinMAEDeg=0.9828
+Epoch 82/100
+Train loss total=0.1853 L_cls=0.0103 L_dir=0.0901
+Train acc=0.9974 macroF1=0.9962 dirAcc=0.4892 rzAcc=0.5091 angleDeg=46.2231 tunnelBinAcc=0.9645 tunnelBinMAE=0.0355 tunnelBinMAEDeg=0.5322
+Val loss total=0.4370 L_cls=0.0650 L_dir=0.2022
+Val acc=0.9856 macroF1=0.9873 dirAcc=0.5431 rzAcc=0.4079 angleDeg=47.5675 tunnelBinAcc=0.9423 tunnelBinMAE=0.0686 tunnelBinMAEDeg=1.0296
+Epoch 83/100
+Train loss total=0.1859 L_cls=0.0087 L_dir=0.0908
+Train acc=0.9979 macroF1=0.9973 dirAcc=0.5003 rzAcc=0.5101 angleDeg=46.8032 tunnelBinAcc=0.9642 tunnelBinMAE=0.0358 tunnelBinMAEDeg=0.5365
+Val loss total=0.4080 L_cls=0.0685 L_dir=0.1869
+Val acc=0.9862 macroF1=0.9877 dirAcc=0.5741 rzAcc=0.4204 angleDeg=46.6682 tunnelBinAcc=0.9407 tunnelBinMAE=0.0686 tunnelBinMAEDeg=1.0296
+Epoch 84/100
+Train loss total=0.1953 L_cls=0.0072 L_dir=0.0958
+Train acc=0.9986 macroF1=0.9982 dirAcc=0.4999 rzAcc=0.5045 angleDeg=45.9743 tunnelBinAcc=0.9619 tunnelBinMAE=0.0381 tunnelBinMAEDeg=0.5710
+Val loss total=0.3975 L_cls=0.0581 L_dir=0.1842
+Val acc=0.9864 macroF1=0.9874 dirAcc=0.6591 rzAcc=0.4262 angleDeg=44.1132 tunnelBinAcc=0.9423 tunnelBinMAE=0.0671 tunnelBinMAEDeg=1.0062
+Epoch 85/100
+Train loss total=0.1838 L_cls=0.0074 L_dir=0.0900
+Train acc=0.9983 macroF1=0.9976 dirAcc=0.4969 rzAcc=0.5115 angleDeg=46.6045 tunnelBinAcc=0.9642 tunnelBinMAE=0.0358 tunnelBinMAEDeg=0.5365
+Val loss total=0.4180 L_cls=0.0538 L_dir=0.1955
+Val acc=0.9859 macroF1=0.9862 dirAcc=0.6599 rzAcc=0.4292 angleDeg=45.6283 tunnelBinAcc=0.9345 tunnelBinMAE=0.0733 tunnelBinMAEDeg=1.0998
+Epoch 86/100
+Train loss total=0.1879 L_cls=0.0066 L_dir=0.0923
+Train acc=0.9980 macroF1=0.9972 dirAcc=0.4830 rzAcc=0.5136 angleDeg=46.7641 tunnelBinAcc=0.9661 tunnelBinMAE=0.0339 tunnelBinMAEDeg=0.5092
+Val loss total=0.4145 L_cls=0.0523 L_dir=0.1942
+Val acc=0.9870 macroF1=0.9882 dirAcc=0.6068 rzAcc=0.4273 angleDeg=45.0598 tunnelBinAcc=0.9392 tunnelBinMAE=0.0686 tunnelBinMAEDeg=1.0296
+Epoch 87/100
+Train loss total=0.1827 L_cls=0.0122 L_dir=0.0883
+Train acc=0.9969 macroF1=0.9963 dirAcc=0.5023 rzAcc=0.5112 angleDeg=47.0991 tunnelBinAcc=0.9642 tunnelBinMAE=0.0358 tunnelBinMAEDeg=0.5365
+Val loss total=0.4810 L_cls=0.0725 L_dir=0.2224
+Val acc=0.9848 macroF1=0.9865 dirAcc=0.6619 rzAcc=0.3991 angleDeg=44.8712 tunnelBinAcc=0.9204 tunnelBinMAE=0.0858 tunnelBinMAEDeg=1.2871
+Epoch 88/100
+Train loss total=0.1838 L_cls=0.0066 L_dir=0.0903
+Train acc=0.9986 macroF1=0.9981 dirAcc=0.4873 rzAcc=0.5081 angleDeg=46.7603 tunnelBinAcc=0.9649 tunnelBinMAE=0.0351 tunnelBinMAEDeg=0.5264
+Val loss total=0.3874 L_cls=0.0603 L_dir=0.1786
+Val acc=0.9870 macroF1=0.9885 dirAcc=0.6256 rzAcc=0.4118 angleDeg=46.9809 tunnelBinAcc=0.9423 tunnelBinMAE=0.0686 tunnelBinMAEDeg=1.0296
+Epoch 89/100
+Train loss total=0.1849 L_cls=0.0079 L_dir=0.0905
+Train acc=0.9985 macroF1=0.9982 dirAcc=0.4911 rzAcc=0.5221 angleDeg=46.4278 tunnelBinAcc=0.9655 tunnelBinMAE=0.0345 tunnelBinMAEDeg=0.5178
+Val loss total=0.4303 L_cls=0.0620 L_dir=0.1996
+Val acc=0.9867 macroF1=0.9878 dirAcc=0.7078 rzAcc=0.4356 angleDeg=46.1311 tunnelBinAcc=0.9376 tunnelBinMAE=0.0702 tunnelBinMAEDeg=1.0530
+Epoch 90/100
+Train loss total=0.1850 L_cls=0.0094 L_dir=0.0901
+Train acc=0.9980 macroF1=0.9972 dirAcc=0.5009 rzAcc=0.5111 angleDeg=46.6554 tunnelBinAcc=0.9644 tunnelBinMAE=0.0356 tunnelBinMAEDeg=0.5336
+Val loss total=0.3769 L_cls=0.0631 L_dir=0.1727
+Val acc=0.9864 macroF1=0.9876 dirAcc=0.7394 rzAcc=0.4082 angleDeg=45.6233 tunnelBinAcc=0.9407 tunnelBinMAE=0.0686 tunnelBinMAEDeg=1.0296
+Epoch 91/100
+Train loss total=0.1914 L_cls=0.0070 L_dir=0.0940
+Train acc=0.9981 macroF1=0.9970 dirAcc=0.4999 rzAcc=0.5221 angleDeg=47.5035 tunnelBinAcc=0.9645 tunnelBinMAE=0.0355 tunnelBinMAEDeg=0.5322
+Val loss total=0.3787 L_cls=0.0626 L_dir=0.1737
+Val acc=0.9864 macroF1=0.9876 dirAcc=0.6882 rzAcc=0.4090 angleDeg=46.4731 tunnelBinAcc=0.9345 tunnelBinMAE=0.0749 tunnelBinMAEDeg=1.1232
+Epoch 92/100
+Train loss total=0.1866 L_cls=0.0070 L_dir=0.0916
+Train acc=0.9984 macroF1=0.9983 dirAcc=0.4776 rzAcc=0.5185 angleDeg=46.2290 tunnelBinAcc=0.9614 tunnelBinMAE=0.0386 tunnelBinMAEDeg=0.5796
+Val loss total=0.3389 L_cls=0.0613 L_dir=0.1541
+Val acc=0.9867 macroF1=0.9880 dirAcc=0.5503 rzAcc=0.4245 angleDeg=47.1362 tunnelBinAcc=0.9360 tunnelBinMAE=0.0749 tunnelBinMAEDeg=1.1232
+Epoch 93/100
+Train loss total=0.1787 L_cls=0.0096 L_dir=0.0869
+Train acc=0.9978 macroF1=0.9973 dirAcc=0.4950 rzAcc=0.5186 angleDeg=47.1620 tunnelBinAcc=0.9660 tunnelBinMAE=0.0340 tunnelBinMAEDeg=0.5106
+Val loss total=0.3864 L_cls=0.0649 L_dir=0.1770
+Val acc=0.9862 macroF1=0.9875 dirAcc=0.6469 rzAcc=0.4251 angleDeg=46.2388 tunnelBinAcc=0.9376 tunnelBinMAE=0.0702 tunnelBinMAEDeg=1.0530
+Epoch 94/100
+Train loss total=0.1775 L_cls=0.0065 L_dir=0.0871
+Train acc=0.9985 macroF1=0.9985 dirAcc=0.4977 rzAcc=0.5232 angleDeg=47.3006 tunnelBinAcc=0.9651 tunnelBinMAE=0.0349 tunnelBinMAEDeg=0.5235
+Val loss total=0.4211 L_cls=0.0685 L_dir=0.1934
+Val acc=0.9873 macroF1=0.9886 dirAcc=0.6430 rzAcc=0.4201 angleDeg=45.2959 tunnelBinAcc=0.9236 tunnelBinMAE=0.0842 tunnelBinMAEDeg=1.2637
+Epoch 95/100
+Train loss total=0.1823 L_cls=0.0098 L_dir=0.0887
+Train acc=0.9978 macroF1=0.9973 dirAcc=0.5071 rzAcc=0.5130 angleDeg=47.1885 tunnelBinAcc=0.9652 tunnelBinMAE=0.0351 tunnelBinMAEDeg=0.5264
+Val loss total=0.3999 L_cls=0.0593 L_dir=0.1851
+Val acc=0.9881 macroF1=0.9893 dirAcc=0.7239 rzAcc=0.4284 angleDeg=46.8834 tunnelBinAcc=0.9329 tunnelBinMAE=0.0764 tunnelBinMAEDeg=1.1466
+Epoch 96/100
+Train loss total=0.1825 L_cls=0.0071 L_dir=0.0894
+Train acc=0.9984 macroF1=0.9978 dirAcc=0.4947 rzAcc=0.5151 angleDeg=46.5734 tunnelBinAcc=0.9659 tunnelBinMAE=0.0341 tunnelBinMAEDeg=0.5120
+Val loss total=0.3526 L_cls=0.0656 L_dir=0.1599
+Val acc=0.9870 macroF1=0.9885 dirAcc=0.6223 rzAcc=0.4060 angleDeg=46.9348 tunnelBinAcc=0.9438 tunnelBinMAE=0.0671 tunnelBinMAEDeg=1.0062
+Epoch 97/100
+Train loss total=0.1749 L_cls=0.0068 L_dir=0.0857
+Train acc=0.9982 macroF1=0.9981 dirAcc=0.4877 rzAcc=0.5182 angleDeg=46.6999 tunnelBinAcc=0.9645 tunnelBinMAE=0.0355 tunnelBinMAEDeg=0.5322
+Val loss total=0.3475 L_cls=0.0571 L_dir=0.1595
+Val acc=0.9878 macroF1=0.9892 dirAcc=0.5107 rzAcc=0.3841 angleDeg=46.3450 tunnelBinAcc=0.9438 tunnelBinMAE=0.0655 tunnelBinMAEDeg=0.9828
+Epoch 98/100
+Train loss total=0.1854 L_cls=0.0099 L_dir=0.0902
+Train acc=0.9975 macroF1=0.9967 dirAcc=0.4891 rzAcc=0.5118 angleDeg=46.5280 tunnelBinAcc=0.9647 tunnelBinMAE=0.0353 tunnelBinMAEDeg=0.5293
+Val loss total=0.3561 L_cls=0.0605 L_dir=0.1629
+Val acc=0.9856 macroF1=0.9874 dirAcc=0.6530 rzAcc=0.4309 angleDeg=46.8557 tunnelBinAcc=0.9376 tunnelBinMAE=0.0702 tunnelBinMAEDeg=1.0530
+Epoch 99/100
+Train loss total=0.1715 L_cls=0.0070 L_dir=0.0840
+Train acc=0.9985 macroF1=0.9979 dirAcc=0.5012 rzAcc=0.5125 angleDeg=46.0201 tunnelBinAcc=0.9675 tunnelBinMAE=0.0329 tunnelBinMAEDeg=0.4933
+Val loss total=0.3668 L_cls=0.0562 L_dir=0.1694
+Val acc=0.9870 macroF1=0.9884 dirAcc=0.6433 rzAcc=0.4290 angleDeg=44.3181 tunnelBinAcc=0.9345 tunnelBinMAE=0.0733 tunnelBinMAEDeg=1.0998
+Epoch 100/100
+Train loss total=0.1833 L_cls=0.0080 L_dir=0.0896
+Train acc=0.9978 macroF1=0.9972 dirAcc=0.4909 rzAcc=0.5138 angleDeg=46.0406 tunnelBinAcc=0.9630 tunnelBinMAE=0.0370 tunnelBinMAEDeg=0.5552
+Val loss total=0.3753 L_cls=0.0648 L_dir=0.1714
+Val acc=0.9875 macroF1=0.9887 dirAcc=0.5863 rzAcc=0.4013 angleDeg=45.6092 tunnelBinAcc=0.9345 tunnelBinMAE=0.0749 tunnelBinMAEDeg=1.1232

@@ -1,0 +1,67 @@
+{
+  "split": "test",
+  "elapsed_s": 2298.532498799963,
+  "losses": {
+    "loss": 0.26069803300260913,
+    "L_cls": 0.04671884808112736,
+    "L_dir": 0.11866930419181852,
+    "L_mag": 0.686532928672854,
+    "L_rz": 0.7626103775322932,
+    "L_lock": 0.554158308086633
+  },
+  "num_samples": 3610,
+  "class_accuracy": 0.9894736842105263,
+  "macro_f1": 0.9904596777711706,
+  "confusion_matrix": [
+    [
+      622,
+      0,
+      4
+    ],
+    [
+      0,
+      1610,
+      10
+    ],
+    [
+      2,
+      22,
+      1340
+    ]
+  ],
+  "per_class": [
+    {
+      "class": "Tunnel-like",
+      "support": 626,
+      "precision": 0.9967948717948718,
+      "recall": 0.9936102236421726,
+      "f1": 0.9952
+    },
+    {
+      "class": "Open-like",
+      "support": 1620,
+      "precision": 0.9865196078431373,
+      "recall": 0.9938271604938271,
+      "f1": 0.990159901599016
+    },
+    {
+      "class": "Nondeg./other",
+      "support": 1364,
+      "precision": 0.9896602658788775,
+      "recall": 0.9824046920821115,
+      "f1": 0.986019131714496
+    }
+  ],
+  "dir_exist_accuracy": 0.5354570637119114,
+  "rz_accuracy": 0.40803324099722993,
+  "tunnel_angle_error_deg": 44.563472747802734,
+  "tunnel_dir_bin_accuracy": 0.9265175718849841,
+  "tunnel_dir_bin_mae": 0.07507987220447285,
+  "tunnel_dir_bin_mae_deg": 1.1261980830670928,
+  "direction_counts": {
+    "N": 626,
+    "correct": 580,
+    "adjacent": 45,
+    "others": 1
+  }
+}
