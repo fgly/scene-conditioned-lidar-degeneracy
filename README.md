@@ -8,6 +8,8 @@ This repository contains the implementation of **Scene-Conditioned LiDAR Degener
 
 Paper: coming soon
 
+Demo video: [YouTube](https://www.youtube.com/watch?v=wnZXSvyz6-0)
+
 ## Overview
 
 <p align="center">
@@ -19,6 +21,8 @@ The pipeline contains two parts: offline geometric label generation and an onlin
 ## Demo
 
 The replay dashboard shows the input point cloud, geometric statistics, predicted scene label, and direction-bin output.
+
+A full demonstration video is available on [YouTube](https://www.youtube.com/watch?v=wnZXSvyz6-0).
 
 ### Open-like / non-degenerate sequence replay
 
