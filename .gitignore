@@ -85,6 +85,10 @@ paper_figures/
 visio/
 *.vsdx
 
+# README assets kept for the release page
+!assets/
+!assets/**
+
 # Model logs: keep only the selected release model directory.
 log/*
 !log/deg_scene/
@@ -105,3 +109,5 @@ checkpoints/
 # Keep source packages with data-related names.
 !data_utils/
 !data_utils/**
+data_utils/**/__pycache__/
+data_utils/**/*.py[cod]

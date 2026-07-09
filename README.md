@@ -1,140 +1,162 @@
-# Scene-Conditioned LiDAR Degeneracy Prediction
+# Scene-Conditioned LiDAR Degeneracy Prediction With Geometric Statistical Label Generation
 
-PointNeXt-based LiDAR degeneracy prediction for single-frame point clouds with
-geometric statistical label generation.
+[![Code](https://img.shields.io/badge/Code-PyTorch-orange)]()
+[![Backbone](https://img.shields.io/badge/Backbone-PointNeXt-green)]()
+[![License](https://img.shields.io/badge/License-MIT-lightgrey)]()
 
-The release model predicts:
+This repository contains the implementation of **Scene-Conditioned LiDAR Degeneracy Prediction With Geometric Statistical Label Generation**. The method predicts scene-level LiDAR degeneracy from a single point cloud and estimates the tunnel-axis direction for tunnel-like scenes.
 
-- `0`: `tunnel_like`
-- `1`: `open_like`
-- `2`: `nondeg_or_other`
+Paper: coming soon
 
-For `tunnel_like` samples, the horizontal degeneracy direction is represented as
-an unoriented axis angle in `[0, 180)`. The default direction discretization uses
-`num_dir_bins=12`, or 15 degrees per bin.
+## Overview
 
-## Release Scope
+<p align="center">
+  <img src="assets/framework.png" width="95%">
+</p>
 
-This repository is a PointNeXt-only release. Datasets and large generated
-experiment outputs are not included. The default released checkpoint is expected
-under:
+The pipeline contains two parts: offline geometric label generation and an online degeneracy prior network. The offline stage generates scene degeneracy labels and tunnel-axis direction labels from point-cloud geometric statistics. The online stage uses a PointNeXt backbone to predict the degeneracy state and direction prior from a single LiDAR scan.
+
+## Demo
+
+The replay dashboard shows the input point cloud, geometric statistics, predicted scene label, and direction-bin output.
+
+### Open-like / non-degenerate sequence replay
+
+<p align="center">
+  <img src="assets/pointnext_open_replay_preview.gif" width="95%">
+</p>
+
+### Tunnel-like sequence replay
+
+<p align="center">
+  <img src="assets/pointnext_tunnel_replay_preview.gif" width="95%">
+</p>
+
+## Highlights
+
+- Geometric statistical label generation for LiDAR degeneracy scenes.
+- Three-class scene prediction: tunnel-like, open-like, and non-degenerate/other.
+- Tunnel-axis direction prediction using axial direction bins.
+- Circular neighbor-weighted direction supervision for axial bin classification.
+- PointNeXt-based single-frame point-cloud inference.
+
+## Installation
+
+Please install PyTorch according to your CUDA environment from the official PyTorch instructions.
+
+```bash
+git clone https://github.com/fgly/scene-conditioned-lidar-degeneracy.git
+cd scene-conditioned-lidar-degeneracy
+
+conda create -n degnet python=3.9 -y
+conda activate degnet
+
+pip install -r requirements.txt
+```
+
+## Dataset Organization
+
+The dataset is not included in this repository. Prepare point clouds and labels locally, then pass the label table with `--label_path` and the data root with `--data_root`.
+
+A typical layout is:
+
+```text
+dataset_root/
+|-- labels/
+|   `-- deg_scene_labels.csv
+`-- point_clouds/
+    |-- frame_000001.npy
+    |-- frame_000002.npy
+    `-- ...
+```
+
+Point-cloud paths in the label table may be absolute or relative to `--data_root`. Supported point-cloud formats include `.npy`, `.npz`, `.txt`, `.csv`, `.pts`, `.xyz`, `.bin`, `.pkl`, and `.pickle`; the first three columns are used as xyz coordinates unless feature channels are enabled.
+
+The required and optional CSV fields follow `data_utils/DegSceneDataLoader.py`:
+
+| Field | Required | Description |
+|---|---:|---|
+| `file_path`, `path`, `points`, or `point_path` | yes | Point-cloud file path. |
+| `class_gt` or `scene_type` | yes | Class id or scene label. `scene_type` accepts aliases for `tunnel_like`, `open_like`, and `nondeg_or_other`. |
+| `split` | no | `train`, `val`, or `test`. If omitted, the loader creates a deterministic 70/15/15 split. |
+| `dir_x`, `dir_y`, `gt_dir_x`, `gt_dir_y` | no | Tunnel-axis xy direction used for direction labels. |
+| `angle_deg` | no | Direction angle used to derive `dir_bin_gt` when bin labels are not present. |
+| `dir_xy_valid` | no | Valid mask for xy direction supervision. |
+| `dir_bin_gt`, `dir_bin_valid` | no | Axial direction-bin label and valid mask. |
+| `dir_exist_gt` | no | Direction-existence target. |
+| `rz_gt` | no | Open-like/rz auxiliary target. |
+| `sample_weight` | no | Per-sample loss weight. |
+
+Example:
+
+```csv
+file_path,split,scene_type,dir_x,dir_y,dir_xy_valid,dir_bin_gt,dir_bin_valid
+point_clouds/frame_000001.npy,train,tunnel_like,1.0,0.0,1,0,1
+point_clouds/frame_000002.npy,val,open_like,0.0,0.0,0,0,0
+point_clouds/frame_000003.npy,test,nondeg_or_other,0.0,0.0,0,0,0
+```
+
+## Pretrained Model
+
+The released PointNeXt checkpoint is placed at:
 
 ```text
 log/deg_scene/smoke_pointnext_bs8_ep2/checkpoints/best_model.pth
 ```
 
-The included smoke checkpoint is small enough for normal GitHub storage. If you
-replace it with a larger checkpoint, prefer Git LFS or a GitHub Release asset
-and keep the same directory layout.
-
-## Repository Layout
+The directory also contains the corresponding evaluation logs:
 
 ```text
-data_utils/
-  DegSceneDataLoader.py
-models/
-  deg_scene_model.py
-  pointcloud_ops.py
-  pointnext_backbone.py
-utils/
-  deg_losses.py
-  deg_metrics.py
-tools/
-  augment_deg_dataset_rotate_z.py
-  bag_degeneracy_labeler.py
-  build_scene_direction_pseudo_labels.py
-  check_dir_bin_mapping.py
-  plot_deg_dataset_figs.py
-  smoke_test_deg_scene.py
-generate_deg_scene_dataset.py
-train_deg_scene.py
-test_deg_scene.py
-infer_deg_scene_pcd.py
-view_npy_pointcloud.py
+log/deg_scene/smoke_pointnext_bs8_ep2/
+|-- checkpoints/
+|   `-- best_model.pth
+|-- eval_test_metrics.json
+|-- eval_val_results.txt
+|-- train.log
+`-- README.md
 ```
 
-## Installation
+## Quick Start
 
-Install PyTorch for your CUDA/runtime environment from the official PyTorch
-instructions, then install the remaining Python dependencies:
+### Smoke test
 
-```shell
-pip install -r requirements.txt
-```
-
-## Data Organization
-
-Point clouds are stored as one frame per file. The loader supports `.npy`,
-`.npz`, `.txt`, `.csv`, `.pts`, `.xyz`, `.bin`, `.pkl`, and `.pickle`; the first
-three columns must be xyz.
-
-The recommended label format is CSV. Required columns are a point-cloud path
-(`file_path`, `path`, `points`, or `point_path`) and a class label
-(`scene_type` or `class_gt`). Common optional columns include:
-
-```text
-split, dir_x, dir_y, dir_z, dir_xy_valid, dir_exist_gt,
-dir_bin_gt, dir_bin_valid, angle_deg, rz_gt, sample_weight
-```
-
-Example:
-
-```csv
-file_path,split,scene_type,dir_x,dir_y,dir_z,dir_xy_valid,dir_bin_gt,dir_bin_valid
-points/frame_000001.npy,train,tunnel_like,1.0,0.0,0.0,1,0,1
-points/frame_000002.npy,val,open_like,0.0,0.0,0.0,0,-1,0
-points/frame_000003.npy,test,nondeg_or_other,0.0,0.0,0.0,0,-1,0
-```
-
-The dataset is not distributed with this repository. Put your local data under a
-separate directory and pass it with `--data_root` and `--label_path`.
-
-## Minimal Checks
-
-Run the CPU smoke test:
-
-```shell
+```bash
 python tools/smoke_test_deg_scene.py
 ```
 
-Run evaluation on a prepared split:
+### Evaluate the released checkpoint
 
-```shell
+```bash
 python test_deg_scene.py \
   --label_path path/to/labels/deg_scene_labels.csv \
   --data_root path/to/dataset_root \
-  --checkpoint log/deg_scene/smoke_pointnext_bs8_ep2/checkpoints/best_model.pth \
-  --split test \
+  --log_dir smoke_pointnext_bs8_ep2 \
+  --backbone pointnext \
   --num_point 2048 \
   --input_channel 3 \
   --use_uniform_sample \
   --use_cpu
 ```
 
-Run single `.pcd` inference:
+`--log_dir smoke_pointnext_bs8_ep2` resolves to `log/deg_scene/smoke_pointnext_bs8_ep2/checkpoints/best_model.pth`. You can also pass an explicit checkpoint with `--checkpoint`.
 
-```shell
+### Inference on a single PCD
+
+```bash
 python infer_deg_scene_pcd.py \
-  --pcd path/to/frame.pcd \
+  --pcd path/to/example.pcd \
   --checkpoint log/deg_scene/smoke_pointnext_bs8_ep2/checkpoints/best_model.pth \
+  --backbone pointnext \
   --num_point 2048 \
   --use_cpu
 ```
 
 ## Training
 
-Synthetic data can be generated for a quick local workflow:
-
-```shell
-python generate_deg_scene_dataset.py --out_dir ./deg_scene_synth --num_each 100
-```
-
-Train a PointNeXt model:
-
-```shell
+```bash
 python train_deg_scene.py \
-  --label_path ./deg_scene_synth/labels/deg_scene_labels.csv \
-  --data_root ./deg_scene_synth \
+  --label_path path/to/labels/deg_scene_labels.csv \
+  --data_root path/to/dataset_root \
   --num_point 2048 \
   --batch_size 8 \
   --epoch 100 \
@@ -152,31 +174,62 @@ python train_deg_scene.py \
   --log_dir pointnext_run
 ```
 
-Training logs and checkpoints are written under `log/deg_scene/<log_dir>/`.
-Only `log/deg_scene/smoke_pointnext_bs8_ep2/` is included in this release tree.
+Training logs and checkpoints are written to `log/deg_scene/<log_dir>/`.
 
-## Tools
+## Geometric Label Generation
 
-The `tools/` directory is limited to label generation, label inspection, and
-minimal model checks:
+| Script | Description |
+|---|---|
+| `tools/bag_degeneracy_labeler.py` | Generate degeneracy labels from ROS1 bag PointCloud2 frames using point-cloud geometric statistics. |
+| `tools/build_scene_direction_pseudo_labels.py` | Build scene and tunnel-axis direction pseudo labels from a point-cloud file list. |
+| `tools/check_dir_bin_mapping.py` | Check axial direction-bin mapping and label consistency. |
+| `tools/plot_deg_dataset_figs.py` | Visualize label statistics and diagnostic figures. |
+| `tools/augment_deg_dataset_rotate_z.py` | Apply z-axis rotation augmentation while keeping label consistency. |
 
-- `bag_degeneracy_labeler.py`: generate geometric-statistical labels from LiDAR
-  bag / PointCloud2 data.
-- `build_scene_direction_pseudo_labels.py`: build direction pseudo labels for
-  scene-level degeneracy training.
-- `augment_deg_dataset_rotate_z.py`: rotate point-cloud datasets around the z
-  axis and update tunnel direction labels.
-- `check_dir_bin_mapping.py`: verify direction-bin mapping and label quality.
-- `plot_deg_dataset_figs.py`: inspect label statistics and diagnostic plots.
-- `smoke_test_deg_scene.py`: run a random-data model/loss/metric smoke test.
+## Results
+
+| Task | Metric | Value |
+|---|---:|---:|
+| Scene classification | Accuracy | 0.9895 |
+| Scene classification | Macro-F1 | 0.9905 |
+| Tunnel-axis direction | Direction accuracy | 0.9265 |
+| Tunnel-axis direction | Angular MAE | 1.13 deg |
+| Inference | Average time | 1.02 ms/sample |
+
+## Repository Structure
+
+```text
+.
+|-- assets/                  # Framework and demo figures for README
+|-- data_utils/              # Dataset and point-cloud loading utilities
+|-- models/                  # PointNeXt backbone and degeneracy prediction heads
+|-- tools/                   # Label generation and smoke-test tools
+|-- utils/                   # Metrics and helper functions
+|-- log/deg_scene/           # Released checkpoint and evaluation logs
+|-- train_deg_scene.py       # Training entry
+|-- test_deg_scene.py        # Evaluation entry
+|-- infer_deg_scene_pcd.py   # Single-frame PCD inference entry
+|-- requirements.txt
+`-- README.md
+```
 
 ## Citation
 
+If you find this repository useful, please cite:
+
 ```bibtex
-@misc{deg_scene_lidar_2026,
+@misc{scene_conditioned_lidar_degeneracy,
   title  = {Scene-Conditioned LiDAR Degeneracy Prediction With Geometric Statistical Label Generation},
-  author = {Anonymous Authors},
+  author = {Author Name},
   year   = {2026},
-  note   = {Code release}
+  note   = {Code available at https://github.com/fgly/scene-conditioned-lidar-degeneracy}
 }
 ```
+
+## Acknowledgements
+
+This implementation uses a PointNeXt-style point-cloud backbone. The manuscript experiments use Python simulation, CARLA simulation, field-collected scenes, coal-mine tunnel data, and GEODE samples.
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE).
