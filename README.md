@@ -196,7 +196,7 @@ If you find this repository useful, please cite:
 ```bibtex
 @misc{scene_conditioned_lidar_degeneracy,
   title  = {Scene-Conditioned LiDAR Degeneracy Prediction With Geometric Statistical Label Generation},
-  author = {Waiting},
+  author = {Guanyu Qian},
   year   = {2026},
   note   = {Code available at https://github.com/fgly/scene-conditioned-lidar-degeneracy}
 }
