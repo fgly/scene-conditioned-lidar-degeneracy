@@ -72,21 +72,6 @@ dataset_root/
 
 Point-cloud paths in the label table may be absolute or relative to `--data_root`. Supported point-cloud formats include `.npy`, `.npz`, `.txt`, `.csv`, `.pts`, `.xyz`, `.bin`, `.pkl`, and `.pickle`; the first three columns are used as xyz coordinates unless feature channels are enabled.
 
-The required and optional CSV fields follow `data_utils/DegSceneDataLoader.py`:
-
-| Field | Required | Description |
-|---|---:|---|
-| `file_path`, `path`, `points`, or `point_path` | yes | Point-cloud file path. |
-| `class_gt` or `scene_type` | yes | Class id or scene label. `scene_type` accepts aliases for `tunnel_like`, `open_like`, and `nondeg_or_other`. |
-| `split` | no | `train`, `val`, or `test`. If omitted, the loader creates a deterministic 70/15/15 split. |
-| `dir_x`, `dir_y`, `gt_dir_x`, `gt_dir_y` | no | Tunnel-axis xy direction used for direction labels. |
-| `angle_deg` | no | Direction angle used to derive `dir_bin_gt` when bin labels are not present. |
-| `dir_xy_valid` | no | Valid mask for xy direction supervision. |
-| `dir_bin_gt`, `dir_bin_valid` | no | Axial direction-bin label and valid mask. |
-| `dir_exist_gt` | no | Direction-existence target. |
-| `rz_gt` | no | Open-like/rz auxiliary target. |
-| `sample_weight` | no | Per-sample loss weight. |
-
 Example:
 
 ```csv
@@ -186,15 +171,6 @@ Training logs and checkpoints are written to `log/deg_scene/<log_dir>/`.
 | `tools/plot_deg_dataset_figs.py` | Visualize label statistics and diagnostic figures. |
 | `tools/augment_deg_dataset_rotate_z.py` | Apply z-axis rotation augmentation while keeping label consistency. |
 
-## Results
-
-| Task | Metric | Value |
-|---|---:|---:|
-| Scene classification | Accuracy | 0.9895 |
-| Scene classification | Macro-F1 | 0.9905 |
-| Tunnel-axis direction | Direction accuracy | 0.9265 |
-| Tunnel-axis direction | Angular MAE | 1.13 deg |
-| Inference | Average time | 1.02 ms/sample |
 
 ## Repository Structure
 
@@ -220,7 +196,7 @@ If you find this repository useful, please cite:
 ```bibtex
 @misc{scene_conditioned_lidar_degeneracy,
   title  = {Scene-Conditioned LiDAR Degeneracy Prediction With Geometric Statistical Label Generation},
-  author = {Author Name},
+  author = {Waiting},
   year   = {2026},
   note   = {Code available at https://github.com/fgly/scene-conditioned-lidar-degeneracy}
 }
@@ -228,7 +204,7 @@ If you find this repository useful, please cite:
 
 ## Acknowledgements
 
-This implementation uses a PointNeXt-style point-cloud backbone. The manuscript experiments use Python simulation, CARLA simulation, field-collected scenes, coal-mine tunnel data, and GEODE samples.
+This implementation uses a PointNeXt-style point-cloud backbone. The manuscript experiments use GEODE samples.
 
 ## License
 
