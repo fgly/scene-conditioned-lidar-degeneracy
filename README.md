@@ -147,7 +147,7 @@ python train_deg_scene.py \
   --label_path path/to/labels/deg_scene_labels.csv \
   --data_root path/to/dataset_root \
   --num_point 2048 \
-  --batch_size 8 \
+  --batch_size 200 \
   --epoch 100 \
   --input_channel 3 \
   --backbone pointnext \
@@ -159,7 +159,7 @@ python train_deg_scene.py \
   --lambda_tun 2.0 \
   --lambda_rz 0.2 \
   --lambda_lock 0.1 \
-  --dir_bin_smoothing 0.2 \
+  --dir_bin_smoothing 0.8 \
   --log_dir pointnext_run
 ```
 
